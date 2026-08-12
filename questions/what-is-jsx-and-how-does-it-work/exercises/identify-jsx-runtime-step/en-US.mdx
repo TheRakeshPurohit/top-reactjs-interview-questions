@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+What happens to JSX before a typical browser executes the application?
+
+## Options
+
+### browser-html-parser
+
+The browser HTML parser inserts JSX directly into the document.
+
+> JSX is embedded in JavaScript modules and is not parsed as page HTML.
+
+### compile-to-calls (correct)
+
+A build step transforms it into JavaScript calls that create React element descriptions.
+
+> JSX is syntax consumed by tooling; the browser normally receives ordinary JavaScript.
+
+### css-preprocessor
+
+A CSS preprocessor converts JSX tags into class selectors.
+
+> JSX transformation belongs to the JavaScript build pipeline, not CSS preprocessing.
+
+### react-template-string
+
+React converts every JSX tree into one HTML string before reconciliation.
+
+> JSX produces element descriptions; client reconciliation does not require one concatenated HTML string.

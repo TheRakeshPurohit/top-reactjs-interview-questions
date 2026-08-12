@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which situation provides a concrete reason to use `useCallback`?
+
+## Options
+
+### memo-child-prop (correct)
+
+Profiling shows an expensive `memo` child re-renders because its function prop gets a new identity on every parent render.
+
+> Stabilizing the callback can let that memoized child reuse its prior props when dependencies are unchanged.
+
+### all-functions-expensive
+
+Every inline function is inherently expensive to create, so all handlers should be wrapped.
+
+> Function creation is usually not the cost worth optimizing; indiscriminate caching adds complexity.
+
+### semantic-storage
+
+The application relies on React never discarding the cached callback for correctness.
+
+> `useCallback` is a performance tool; application correctness should not depend on cache retention.
+
+### avoid-closure
+
+The callback must never capture reactive values, so an empty dependency array is always correct.
+
+> Captured reactive values belong in the dependency list unless the design is changed to avoid reading them.

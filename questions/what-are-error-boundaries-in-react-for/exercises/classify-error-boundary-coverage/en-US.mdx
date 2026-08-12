@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which failures can a React error boundary catch and replace with fallback UI? Select all that apply.
+
+## Options
+
+### boundary-itself
+
+The boundary’s own fallback render throws.
+
+> A boundary cannot catch itself; a boundary higher in the tree would be needed.
+
+### timer-callback
+
+A plain `setTimeout` callback throws.
+
+> Arbitrary asynchronous callbacks run outside the descendant render work an error boundary catches.
+
+### descendant-render (correct)
+
+A descendant throws while rendering.
+
+> Render errors in the descendant tree are the primary case an error boundary handles.
+
+### descendant-lifecycle (correct)
+
+A descendant class component throws in a lifecycle method.
+
+> Error boundaries cover descendant rendering and lifecycle work handled by React.
+
+### click-handler
+
+An event handler throws after a user clicks a button.
+
+> Event-handler errors should be caught or reported at the event source; boundaries do not wrap arbitrary event callbacks.

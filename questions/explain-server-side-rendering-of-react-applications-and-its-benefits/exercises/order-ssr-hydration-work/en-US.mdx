@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which sequence best describes a server-rendered interactive React page?
+
+## Options
+
+### client-first-server-patch
+
+The client renders an empty root, then the server patches that root after JavaScript runs.
+
+> Server rendering happens before the response reaches the browser; it does not patch a client-created root afterward.
+
+### html-already-interactive
+
+The server-produced HTML already has React event handlers, so no client work is required.
+
+> HTML can display content, but JavaScript must hydrate client behavior for interactive components.
+
+### server-html-create-root
+
+The server produces HTML, then the browser should call `createRoot` over it to preserve the markup.
+
+> `hydrateRoot`, not a fresh client root, is the API for attaching to React-produced server HTML.
+
+### server-html-client-hydrate (correct)
+
+The server produces HTML, the browser displays it, and `hydrateRoot` attaches React behavior to matching markup.
+
+> SSR supplies the initial document and hydration makes the existing server markup interactive.

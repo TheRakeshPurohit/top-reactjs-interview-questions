@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which provider designs can cause avoidable context problems? Select all that apply.
+
+## Options
+
+### fresh-object-value (correct)
+
+The provider creates a new object literal for `value` on every render even when its contents are unchanged.
+
+> Consumers observe a different reference and re-render because context compares the value with `Object.is`.
+
+### stable-primitive
+
+A provider passes the same primitive theme string until the theme actually changes.
+
+> A stable primitive does not create a new context value on unrelated renders.
+
+### global-state-default (correct)
+
+Context is used as the default home for state that only one leaf component needs.
+
+> This broadens ownership and coupling without solving a real transport problem.
+
+### unrelated-fast-values (correct)
+
+One context combines unrelated values with very different update frequencies.
+
+> Every consumer subscribes to the whole context value, so fast changes can fan out broadly.

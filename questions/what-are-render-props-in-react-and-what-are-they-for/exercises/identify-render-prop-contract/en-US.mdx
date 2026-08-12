@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A headless `MouseTracker` owns pointer state but lets each caller decide the markup. Which API is a render-prop design?
+
+## Options
+
+### function-child (correct)
+
+`<MouseTracker>{({ x, y }) => <Cursor x={x} y={y} />}</MouseTracker>`
+
+> The component calls a function supplied by the caller with its internal state and renders the returned node.
+
+### component-inheritance
+
+`class CursorTracker extends MouseTracker { ... }`
+
+> Subclassing is inheritance, not a function prop used to compose rendering.
+
+### static-child
+
+`<MouseTracker><Cursor /></MouseTracker>` with no state passed to `Cursor`
+
+> A static child does not receive the owner’s state through a function contract.
+
+### module-global
+
+Export `x` and `y` as mutable module variables that any cursor reads.
+
+> Global mutable values do not give callers a render function or a React subscription contract.

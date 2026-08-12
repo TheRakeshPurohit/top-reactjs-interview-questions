@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A design-system input must expose its DOM input ref. Which statement is accurate?
+
+## Options
+
+### ref-for-key
+
+The forwarded ref should be used as the child’s list key.
+
+> Keys identify sibling elements for reconciliation; refs and keys solve different problems.
+
+### always-forwardref
+
+`forwardRef` is required for every function component in every React version.
+
+> React 19 allows `ref` as a regular function-component prop.
+
+### ref-is-state
+
+Forwarding a ref copies the input value into parent state on every keystroke.
+
+> A ref exposes an imperative handle or node; it does not create a controlled-state update loop.
+
+### react19-ref-prop (correct)
+
+In React 19, a function component can accept `ref` as a prop; older React versions use `forwardRef` for this contract.
+
+> React 19 changed ref handling for function components, while `forwardRef` remains relevant to earlier versions and existing libraries.

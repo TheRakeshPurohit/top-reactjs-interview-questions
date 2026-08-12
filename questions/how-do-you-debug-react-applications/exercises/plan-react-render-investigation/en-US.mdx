@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A search panel becomes sluggish after several interactions, and the team suspects React is rendering too much. Describe a measurement-first debugging plan.
+
+## Answer
+
+Reproduce one precise interaction with stable data, then use the React DevTools Profiler to identify slow commits and the components that rendered. Correlate that evidence with browser performance and network traces so rendering is not confused with request, layout, or paint cost. Inspect the responsible component’s props, state, and context changes, reduce the case if needed, and fix the measured cause—such as an over-broad context value or expensive calculation. Repeat the same profile to verify the change instead of assuming that memoization helped.
+
+## Checklist
+
+- Defines one reproducible interaction and representative conditions.
+- Uses React and browser profiling to locate the dominant cost.
+- Inspects the actual trigger instead of adding blanket memoization.
+- Repeats the measurement after the targeted change.

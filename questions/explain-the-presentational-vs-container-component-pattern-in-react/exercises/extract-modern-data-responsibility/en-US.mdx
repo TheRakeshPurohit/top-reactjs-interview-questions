@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A component mixes reusable table markup with subscription setup and data normalization. What is the most direct modern separation?
+
+## Options
+
+### global-context
+
+Move all table data into one global context regardless of who consumes it.
+
+> Context changes the transport mechanism but does not itself create a useful responsibility boundary.
+
+### duplicate-fetching
+
+Copy the subscription logic into each visual table variation.
+
+> Duplication avoids neither the mixed responsibility nor the maintenance cost.
+
+### custom-hook-and-view (correct)
+
+Move the stateful subscription and normalization into a custom Hook, and pass its result to a focused table component.
+
+> A custom Hook separates reusable behavior without requiring an extra wrapper solely to act as a container.
+
+### class-inheritance
+
+Create a base table class and subclass it for every data source.
+
+> Inheritance couples rendering and behavior and is not React’s preferred reuse model.

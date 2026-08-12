@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A provider exposes `{ theme, cursorPosition, setTheme }`. `cursorPosition` changes on every pointer move, causing theme-only consumers to render. What is the strongest structural fix?
+
+## Options
+
+### memo-consumer
+
+Wrap every theme consumer in `memo` while keeping the combined provider value.
+
+> `memo` does not block a component’s own context subscription update.
+
+### freeze-object
+
+Freeze the provider object so React considers all future values identical.
+
+> Freezing prevents mutation but does not make newly created objects referentially equal or separate subscriptions.
+
+### split-contexts (correct)
+
+Put theme and cursor data in separate contexts, and expose stable update functions where useful.
+
+> Consumers then subscribe only to the independently changing value they need.
+
+### empty-memo-deps
+
+Memoize the full value with `[]` so it never changes.
+
+> That would leave consumers with stale theme and cursor data.

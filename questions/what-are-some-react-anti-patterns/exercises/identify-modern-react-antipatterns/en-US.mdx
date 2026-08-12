@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which implementations are React anti-patterns? Select all that apply.
+
+## Options
+
+### index-dynamic-list (correct)
+
+A reorderable list uses array indices as keys.
+
+> Position-based identity can attach local state and DOM to the wrong item after a reorder.
+
+### mutated-array (correct)
+
+A click handler pushes into a state array and passes the same array back to the setter.
+
+> The mutation keeps the same reference and alters prior render snapshots.
+
+### functional-update
+
+A counter uses `setCount((value) => value + 1)` when its next value depends on the previous value.
+
+> The updater form is the correct way to compute from queued state.
+
+### derived-effect-state (correct)
+
+An Effect watches `firstName` and `lastName` only to store their concatenation in state.
+
+> The full name can be derived during render; synchronizing redundant state adds an extra render and drift risk.
+
+### missing-effect-cleanup (correct)
+
+A component subscribes to a socket in an Effect but never unsubscribes.
+
+> The external subscription can outlive the intended synchronization period and duplicate on re-runs.

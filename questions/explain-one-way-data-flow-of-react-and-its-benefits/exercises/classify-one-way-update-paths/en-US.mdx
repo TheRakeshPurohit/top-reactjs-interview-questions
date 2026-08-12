@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements correctly describe one-way data flow in React? Select all that apply.
+
+## Options
+
+### child-calls-callback (correct)
+
+A child can request a change by calling a callback supplied by the owner.
+
+> The callback makes the upward request explicit; the resulting value still flows down on the next render.
+
+### controlled-input-explicit (correct)
+
+A controlled input still follows one-way flow: an event requests an update and a new value is passed back down.
+
+> Its feedback loop is explicit rather than an implicit two-way binding.
+
+### child-mutates-prop
+
+A child should mutate an object prop directly when it needs to update the parent.
+
+> Props are read-only inputs. Direct mutation bypasses the owner and breaks snapshot-based reasoning.
+
+### parent-owns-state (correct)
+
+A parent can own state and pass its current value to children as props.
+
+> The value flows downward from the component that owns it.

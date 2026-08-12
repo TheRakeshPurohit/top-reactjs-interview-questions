@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A multi-step editor has several nested stateful children. Selecting a different document should discard every child’s draft and initialize a fresh editor. What is the most direct React mechanism?
+
+## Options
+
+### random-key-render
+
+Generate a new random key during every render.
+
+> That would remount the editor on every parent render, destroying drafts even when the document did not change.
+
+### mutate-state-objects
+
+Mutate each state object back to its initial fields before rendering.
+
+> Mutation may not schedule updates and still leaves the old component identities in place.
+
+### change-editor-key (correct)
+
+Render the editor with the document ID as its `key`.
+
+> Changing the key makes React replace that component subtree, so all of its local state is initialized again.
+
+### empty-effect
+
+Add an Effect with `[]` that resets every nested state value.
+
+> An empty-dependency Effect does not re-run when the selected document changes.

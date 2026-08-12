@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+An admin editor is large and is opened by very few users. What is the most direct way to keep it out of the initial React bundle?
+
+## Options
+
+### usememo-component
+
+Wrap the editor element in `useMemo`.
+
+> Memoizing an element does not move the editor module out of the initial bundle.
+
+### lazy-dynamic-import (correct)
+
+Load the editor with a dynamic import through `lazy` and render it under a nearby `Suspense` fallback.
+
+> The dynamic import creates an on-demand chunk and Suspense supplies pending UI while it loads.
+
+### effect-import-render
+
+Import the module in an Effect and synchronously render its default export in the same first render.
+
+> An Effect runs after commit; the component needs explicit pending state or the standard lazy-loading integration.
+
+### context-gate
+
+Put the editor behind a context boolean but import it statically.
+
+> Conditional rendering alone does not prevent a statically imported module from joining the bundle.

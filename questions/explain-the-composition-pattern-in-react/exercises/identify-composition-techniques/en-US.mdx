@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which designs use component composition rather than inheritance? Select all that apply.
+
+## Options
+
+### component-subclass
+
+A page subclasses `Dialog` and overrides its render method for every variation.
+
+> React normally favors combining components and props rather than UI inheritance hierarchies.
+
+### children-layout (correct)
+
+A `Card` renders `children` inside its visual frame.
+
+> The caller supplies nested content while `Card` owns the shared structure.
+
+### specialized-wrapper (correct)
+
+A `WarningDialog` renders `Dialog` with fixed warning-specific props.
+
+> Specialization by wrapping and configuring a generic component is composition.
+
+### named-slots (correct)
+
+A `Dialog` accepts `header`, `body`, and `footer` nodes as props.
+
+> Named node props act as slots that callers compose into the generic component.

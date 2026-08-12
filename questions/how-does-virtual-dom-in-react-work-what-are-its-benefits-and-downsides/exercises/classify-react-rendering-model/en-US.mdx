@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe React’s rendering model? Select all that apply.
+
+## Options
+
+### render-then-commit (correct)
+
+React can render and reconcile without ultimately mutating the DOM.
+
+> If the committed output does not require host changes, a render need not produce a DOM mutation.
+
+### extra-work-cost (correct)
+
+Diffing descriptions and retaining internal trees have runtime and memory costs.
+
+> The declarative model is a tradeoff, not zero-cost bookkeeping.
+
+### element-descriptions (correct)
+
+Components return element descriptions rather than directly issuing every DOM mutation.
+
+> React reconciles declarative descriptions before a renderer commits host changes.
+
+### always-faster
+
+The virtual DOM guarantees that React is faster than carefully written direct DOM code.
+
+> Performance depends on the workload; the model provides predictable declarative updates rather than a universal speed guarantee.
+
+### dom-clone
+
+The virtual DOM is a byte-for-byte detached clone of the browser DOM.
+
+> React elements and Fibers describe component and host work; they are not a cloned DOM tree.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A tooltip must measure its rendered height and synchronously adjust position before the user sees the first frame. Which Hook is appropriate for that narrow synchronization?
+
+## Options
+
+### memo-measure
+
+`useMemo`, because reading DOM layout is a pure calculation during render.
+
+> DOM measurement depends on committed nodes and is not safe pure render work.
+
+### layout-effect (correct)
+
+`useLayoutEffect`, because the measurement and adjustment must happen after DOM mutation but before paint.
+
+> Layout Effects block paint so they can avoid a visible incorrect position for measurement-dependent UI.
+
+### effect-always
+
+`useEffect`, because it is guaranteed to run before every browser paint.
+
+> A normal Effect generally does not provide the before-paint layout synchronization required here.
+
+### state-render-measure
+
+Read the element dimensions directly during component rendering.
+
+> The DOM for the current render has not been committed while the component function runs.

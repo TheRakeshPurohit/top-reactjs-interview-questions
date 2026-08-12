@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which sequence matches the classic Flux architecture?
+
+## Options
+
+### bidirectional-binding
+
+Stores and views continuously synchronize by implicit two-way binding.
+
+> Flux was designed around explicit unidirectional updates rather than implicit two-way binding.
+
+### view-mutates-store
+
+A view directly mutates every store and the dispatcher reads the resulting DOM.
+
+> Views request updates through actions rather than directly mutating stores.
+
+### store-edits-action
+
+A store rewrites an action, which then mutates the view without rendering.
+
+> Actions describe events; stores update state and views respond to state changes.
+
+### action-dispatcher-store-view (correct)
+
+An action is sent to the dispatcher, stores update their domain state, and subscribed views render the result.
+
+> Classic Flux separates event description, central dispatch, store transitions, and view rendering in one direction.

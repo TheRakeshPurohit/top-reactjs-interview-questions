@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A parent changes `<Profile userId="a" />` to `<Profile userId="b" />` in the same position with no key. What happens to `Profile` local state by default?
+
+## Options
+
+### state-preserved (correct)
+
+React preserves the component instance and its local state while passing the new prop.
+
+> The element type and position still match, so reconciliation treats it as the same component identity.
+
+### random-identity
+
+React chooses nondeterministically whether to preserve the component.
+
+> Type, position, and key give reconciliation deterministic identity rules.
+
+### dom-only-update
+
+React changes only DOM attributes and never calls `Profile` again.
+
+> New props normally cause the component to render again before React determines host changes.
+
+### state-always-reset
+
+React resets all local state because any prop change creates a new component.
+
+> A new element description does not imply a remount when type, position, and key still identify the same component.

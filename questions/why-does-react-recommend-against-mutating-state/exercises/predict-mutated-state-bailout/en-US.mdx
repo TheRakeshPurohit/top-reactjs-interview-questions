@@ -1,0 +1,38 @@
+---
+type: single-select
+---
+
+A component runs this handler. What is the central problem?
+
+```jsx
+function addItem(item) {
+  cart.items.push(item);
+  setCart(cart);
+}
+```
+
+## Options
+
+### needs-usememo
+
+Wrapping `cart` in `useMemo` would make the mutation observable.
+
+> Memoization would preserve references rather than create the immutable update React needs.
+
+### setter-forbidden-object
+
+State setters cannot accept objects or arrays.
+
+> Objects and arrays are valid state values when updates produce appropriate new snapshots.
+
+### push-async
+
+`push` is asynchronous, so React renders before the item is inserted.
+
+> `push` is synchronous; the issue is mutation and reference identity.
+
+### same-reference-mutated (correct)
+
+It mutates an existing render snapshot and passes React the same object reference, so updates and memoized consumers may be missed.
+
+> React’s equality checks and snapshot model rely on producing a new value for changed state.

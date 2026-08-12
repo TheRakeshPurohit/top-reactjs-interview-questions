@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A list maps each record to two sibling table rows that must share one list key without adding a wrapper element. Which form should it use?
+
+## Options
+
+### short-fragment-key
+
+`< key={record.id}>...</>`
+
+> Fragment shorthand has no syntax for passing a key.
+
+### div-wrapper
+
+`<div key={record.id}>...</div>` inside the table body
+
+> A `div` is invalid in that table position and introduces the DOM node the Fragment is meant to avoid.
+
+### unkeyed-short-fragment
+
+`<>...</>` with the key placed on the first row
+
+> The key must identify the mapped group itself, not only one child inside an unkeyed group.
+
+### explicit-fragment (correct)
+
+`<Fragment key={record.id}>...</Fragment>`
+
+> The explicit Fragment form accepts a key while grouping siblings without an extra DOM node.

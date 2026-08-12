@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which uses of `useId` are appropriate? Select all that apply.
+
+## Options
+
+### label-control (correct)
+
+Generate an ID shared by a form label’s `htmlFor` and its input’s `id`.
+
+> `useId` produces a stable component-instance ID suitable for accessibility relationships.
+
+### hydration-stability (correct)
+
+Generate IDs that remain consistent between React server output and client hydration.
+
+> Hydration-safe ID generation is the main reason the Hook exists.
+
+### list-key
+
+Generate a key for each item while mapping over server data.
+
+> List identity should come from stable data; Hook calls also cannot be introduced dynamically inside a map.
+
+### root-prefix (correct)
+
+Configure distinct `identifierPrefix` values when separate React roots on one page could collide.
+
+> `useId` uniqueness is scoped per root, so prefixes coordinate multiple roots.

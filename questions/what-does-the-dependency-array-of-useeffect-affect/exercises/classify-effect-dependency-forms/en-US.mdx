@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about Effect dependencies are correct? Select all that apply.
+
+## Options
+
+### empty-array-mount (correct)
+
+With `[]`, production setup runs after mount and cleanup runs on unmount.
+
+> There are no reactive dependencies to trigger a production re-synchronization.
+
+### choose-dependencies
+
+Developers may omit a used reactive value simply because they prefer fewer Effect runs.
+
+> Dependencies follow the reactive values the Effect reads; change the design instead of hiding one from the list.
+
+### no-array-every-commit (correct)
+
+With no dependency array, setup runs after every relevant commit.
+
+> Omitting the array opts into re-synchronizing after each commit.
+
+### object-is-comparison (correct)
+
+React compares each listed dependency with its previous value using `Object.is`.
+
+> A changed reference can therefore trigger re-synchronization even when object contents look equal.

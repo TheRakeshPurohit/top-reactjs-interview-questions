@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about React keys are correct? Select all that apply.
+
+## Options
+
+### sibling-identity (correct)
+
+Keys identify children among their siblings across renders.
+
+> React uses them with element type and position to match component identity.
+
+### stable-data-id (correct)
+
+A stable record ID is usually a stronger list key than the record’s current array index.
+
+> The ID follows the data when items move, while the index follows a position.
+
+### received-prop
+
+A component reads its own key from `props.key` by default.
+
+> `key` is special reconciliation metadata and is not passed as an ordinary prop.
+
+### change-resets-state (correct)
+
+Changing a component’s key causes React to replace that identity and reset its local state.
+
+> The old component unmounts and a fresh instance mounts for the new key.
+
+### globally-unique
+
+Every key must be globally unique across the entire application.
+
+> A key only needs to distinguish children within its sibling collection.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A client-only search Effect fetches on every query change. A slow response for an old query sometimes replaces a newer result. What directly addresses the race?
+
+## Options
+
+### abort-or-ignore-stale (correct)
+
+Abort the obsolete request during Effect cleanup or ignore its result with request identity tracking.
+
+> Cleanup prevents an older request from committing data after the Effect has moved to a newer query.
+
+### empty-dependencies
+
+Change the dependency array to `[]` so the request runs only once.
+
+> That stops the search from synchronizing with later query changes rather than handling concurrent responses.
+
+### layout-effect
+
+Move the fetch into `useLayoutEffect` so the response arrives before paint.
+
+> `useLayoutEffect` does not make network completion synchronous and would unnecessarily involve the paint-blocking phase.
+
+### promise-in-render
+
+Create a new fetch promise during every render and pass it to `use`.
+
+> Recreating uncached promises during render can suspend repeatedly and does not establish stale-response ownership.

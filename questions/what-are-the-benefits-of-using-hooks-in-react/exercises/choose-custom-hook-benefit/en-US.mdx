@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Two function components need the same subscription lifecycle but render completely different markup. What is the main benefit of extracting a custom Hook?
+
+## Options
+
+### skip-hook-rules
+
+It allows the subscription Hooks to be called conditionally.
+
+> Custom Hooks must follow the same Hook call-order rules as components.
+
+### share-stateful-logic (correct)
+
+It composes the reusable stateful logic without adding a wrapper component to the rendered tree.
+
+> Custom Hooks share behavior while each component keeps control of its own markup.
+
+### prevent-renders
+
+It prevents either component from re-rendering when the subscription value changes.
+
+> A custom Hook organizes logic; it does not disable updates produced by that logic.
+
+### share-state-instance
+
+It makes both components automatically use the exact same state instance.
+
+> Each call to a custom Hook has its own state unless the Hook explicitly subscribes to shared external state.

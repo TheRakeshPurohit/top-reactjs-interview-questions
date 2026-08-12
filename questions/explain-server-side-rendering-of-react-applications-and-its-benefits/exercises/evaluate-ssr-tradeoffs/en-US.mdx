@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+A team is considering SSR for a product page. Which claims are sound? Select all that apply.
+
+## Options
+
+### earlier-content (correct)
+
+SSR can deliver meaningful HTML before the application JavaScript finishes loading.
+
+> This can improve the time at which users and crawlers receive the initial content.
+
+### server-cost (correct)
+
+Per-request rendering can add server work and operational complexity.
+
+> SSR moves some rendering cost to server infrastructure and introduces another failure and caching boundary.
+
+### hydration-cost (correct)
+
+Interactive client components can still incur JavaScript download and hydration work.
+
+> SSR does not automatically remove the client-side cost of making the page interactive.
+
+### mismatches-safe
+
+Server and client output may differ freely because hydration always repairs the DOM without consequences.
+
+> The initial outputs should match; mismatches are bugs and React does not guarantee every discrepancy is patched.

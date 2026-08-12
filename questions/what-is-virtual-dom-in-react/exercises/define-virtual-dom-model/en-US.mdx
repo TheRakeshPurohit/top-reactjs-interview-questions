@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which description best defines the “virtual DOM” in React?
+
+## Options
+
+### elements-and-fibers (correct)
+
+React element descriptions plus the internal Fiber structures used to reconcile desired UI before committing host changes.
+
+> The term summarizes React’s declarative description and reconciliation model rather than a cloned browser DOM.
+
+### html-string-cache
+
+One cached HTML string that React edits with regular expressions.
+
+> React reconciles structured elements and Fibers rather than diffing one flat HTML string.
+
+### hidden-browser-dom
+
+A second browser-owned DOM tree hidden behind the visible document.
+
+> React’s structures are JavaScript descriptions and internal work records, not another native DOM.
+
+### speed-guarantee
+
+An algorithm that guarantees fewer operations than every hand-written DOM implementation.
+
+> The main benefit is a predictable declarative model, not a universal performance guarantee.

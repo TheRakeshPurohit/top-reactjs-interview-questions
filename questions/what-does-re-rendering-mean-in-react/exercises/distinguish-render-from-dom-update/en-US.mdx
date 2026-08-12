@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A parent update causes a child function component to run again, but the child returns the same host output as before. What can React do?
+
+## Options
+
+### must-replace-dom
+
+Replace every DOM node produced by the child because the function ran again.
+
+> Reconciliation can preserve host nodes whose output remains equivalent.
+
+### render-without-dom-mutation (correct)
+
+Reconcile the new result and commit no DOM mutation for that child.
+
+> Calling the component again is a re-render; DOM changes are a separate commit outcome.
+
+### child-never-ran
+
+Conclude that the child did not re-render because the DOM stayed unchanged.
+
+> A component may run and reconcile without producing any host mutation.
+
+### automatic-remount
+
+Unmount and remount the child, resetting all of its local state.
+
+> A normal re-render preserves component identity and state when type, position, and key still match.

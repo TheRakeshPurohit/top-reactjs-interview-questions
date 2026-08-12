@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A server renders the current time into a component, and the client renders a newer time during its first pass. What is the best diagnosis?
+
+## Options
+
+### safe-auto-repair
+
+The mismatch is harmless because React guarantees that all server attributes are patched.
+
+> Mismatches are bugs, and React does not guarantee repair of every discrepancy.
+
+### event-bubbling
+
+The mismatch is caused by React events bubbling through the component tree.
+
+> Event propagation is unrelated to different server and client text content.
+
+### initial-output-mismatch (correct)
+
+The first client output does not match the server HTML, so the component has a hydration mismatch.
+
+> Hydration expects equivalent initial markup before later client updates occur.
+
+### missing-create-root
+
+The page should replace `hydrateRoot` with `createRoot` to make the mismatch valid.
+
+> Creating a fresh root discards the hydration contract rather than fixing nondeterministic initial output.

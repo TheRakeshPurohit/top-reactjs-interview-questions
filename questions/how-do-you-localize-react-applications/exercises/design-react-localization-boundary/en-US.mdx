@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A React checkout page must support English, Arabic, and Japanese. Outline the component and data boundaries needed beyond replacing visible strings.
+
+## Answer
+
+Keep locale resources outside component logic and render whole translatable messages through an internationalization library. Set the document language and direction, format dates, numbers, currencies, and plurals with locale-aware APIs, and let layouts tolerate expansion and right-to-left flow. Persist an explicit user choice and make localized routes or loading behavior deterministic. Test semantics, focus order, interpolation, and representative long translations rather than validating only the English screenshot.
+
+## Checklist
+
+- Separates translation resources and whole messages from component logic.
+- Covers language direction and locale-sensitive value formatting.
+- Accounts for user locale selection and deterministic loading.
+- Tests expanded and right-to-left content, not only English text.

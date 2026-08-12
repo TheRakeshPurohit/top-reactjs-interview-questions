@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly distinguish state from props? Select all that apply.
+
+## Options
+
+### props-never-change
+
+Props cannot change after a component first mounts.
+
+> A parent can render a new element description with different prop values.
+
+### state-owned (correct)
+
+State is owned by the component or Hook instance that declares it.
+
+> The owner schedules changes through its setter or dispatch function.
+
+### state-global
+
+Every state value is automatically visible to every component in the application.
+
+> Local state is scoped to its owner unless it is explicitly passed or exposed through another mechanism.
+
+### lift-shared-state (correct)
+
+State shared by siblings can be lifted to their lowest common owner and passed down.
+
+> This creates one source of truth and explicit update paths.
+
+### props-readonly (correct)
+
+Props are inputs supplied through the parent’s element description and should be treated as read-only.
+
+> A child requests changes instead of mutating its inputs.

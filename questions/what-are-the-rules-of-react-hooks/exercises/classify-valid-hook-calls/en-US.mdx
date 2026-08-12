@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which calls follow the Rules of Hooks? Select all that apply.
+
+## Options
+
+### conditional-use-api (correct)
+
+React 19’s `use(resource)` is called conditionally inside a component, without wrapping it in `try`/`catch`.
+
+> `use` is not a Hook and may be conditional, though it still has its own component and error-handling constraints.
+
+### custom-hook-top-level (correct)
+
+`useEffect` is called at the top level of a custom Hook.
+
+> Custom Hooks may compose other Hooks while preserving stable call order.
+
+### component-top-level (correct)
+
+`useState` is called unconditionally at the top level of a function component.
+
+> React can associate the call with the same Hook slot on every render.
+
+### conditional-state
+
+`useState` is called only when `isEditing` is true.
+
+> A condition can change the number and order of Hook calls between renders.
+
+### after-return
+
+`useMemo` is called after an early return that sometimes runs.
+
+> The early return makes the Hook absent from some renders and shifts call order.

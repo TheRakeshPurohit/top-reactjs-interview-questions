@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+An Effect depends on `roomId`. The component commits with `roomId="a"`, later commits with `roomId="b"`, and then unmounts. Ignoring the extra development Strict Mode check, what is the order?
+
+## Options
+
+### setup-once
+
+Set up `a` once because a dependency array prevents all later runs.
+
+> A dependency array with `roomId` re-synchronizes when that value changes.
+
+### clean-before-first
+
+Clean up `a`, set up `a`, clean up `b`, then set up `b`.
+
+> There is no prior production setup to clean before the first setup for `a`.
+
+### setup-a-setup-b-only
+
+Set up `a`, set up `b`, with no cleanup until the browser closes.
+
+> React invokes the prior cleanup before an Effect re-runs and invokes the current cleanup on unmount.
+
+### setup-a-clean-a-setup-b-clean-b (correct)
+
+Set up `a`, clean up `a`, set up `b`, then clean up `b`.
+
+> Cleanup runs before re-synchronizing changed dependencies and again after unmounting.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which values are appropriate to keep in a ref? Select all that apply.
+
+## Options
+
+### visible-count
+
+The current count displayed in the button label.
+
+> Rendered data belongs in state because ref changes do not trigger React to update the UI.
+
+### previous-integration-value (correct)
+
+A mutable integration value used only by callbacks and cleanup, not to determine JSX.
+
+> Refs can retain non-visual values across renders without scheduling a render.
+
+### timer-id (correct)
+
+A timeout ID that must persist across renders but is not displayed.
+
+> Changing the ID does not need to render UI, so a ref is a suitable mutable holder.
+
+### render-mutation
+
+A ref that is unpredictably mutated during rendering to coordinate siblings.
+
+> Render should stay pure; arbitrary ref mutation during render creates order-dependent behavior.
+
+### dom-focus-handle (correct)
+
+An input element handle used by an event handler to call `focus()`.
+
+> Refs provide imperative access to host nodes without putting the node in rendered state.

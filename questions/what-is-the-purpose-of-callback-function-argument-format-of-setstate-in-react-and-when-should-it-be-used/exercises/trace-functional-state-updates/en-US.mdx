@@ -1,0 +1,38 @@
+---
+type: single-select
+---
+
+The initial `count` is `4`. What value is rendered after this handler?
+
+```jsx
+function handleClick() {
+  setCount((value) => value + 2);
+  setCount((value) => value * 3);
+}
+```
+
+## Options
+
+### ten
+
+`10`
+
+> The operations are applied sequentially, not combined as `4 + 2 + 4`.
+
+### six
+
+`6`
+
+> Both updater functions are processed; the multiplication is not discarded.
+
+### twelve
+
+`12`
+
+> The second updater receives the result of the first, not the original value `4`.
+
+### eighteen (correct)
+
+`18`
+
+> Queued updater functions run in order: `4 + 2` produces `6`, then `6 * 3` produces `18`.

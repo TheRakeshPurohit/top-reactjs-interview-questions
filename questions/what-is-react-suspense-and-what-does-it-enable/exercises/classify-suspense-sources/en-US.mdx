@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which situations can participate in a supported Suspense boundary? Select all that apply.
+
+## Options
+
+### lazy-code (correct)
+
+A component loaded with `lazy` is still downloading.
+
+> `lazy` integrates module loading with the nearest Suspense fallback.
+
+### arbitrary-effect
+
+Any fetch started in `useEffect` automatically triggers the nearest Suspense fallback.
+
+> Effect-owned loading state does not suspend rendering automatically.
+
+### rejection-fallback
+
+A rejected resource is fully handled by the Suspense loading fallback, so no error boundary is needed.
+
+> Suspense coordinates pending work; rejected work needs error handling such as an error boundary.
+
+### cached-promise-use (correct)
+
+A component reads a stable cached promise with React 19’s `use` API.
+
+> Reading a pending supported resource can suspend the component until it settles.
+
+### framework-integration (correct)
+
+A Suspense-enabled framework or library exposes pending data through its documented integration.
+
+> Frameworks and caches can provide the stable resource contract React needs.

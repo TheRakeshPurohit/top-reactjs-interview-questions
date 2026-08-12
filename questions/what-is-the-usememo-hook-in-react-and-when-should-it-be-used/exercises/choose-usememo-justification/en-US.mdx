@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which use of `useMemo` has a defensible purpose?
+
+## Options
+
+### every-primitive
+
+Memoize every string concatenation regardless of cost.
+
+> Caching trivial work usually adds dependency and retention overhead without a measurable benefit.
+
+### stale-empty-deps
+
+Use `[]` for a calculation that reads changing props so the first result is preserved forever.
+
+> Omitting reactive dependencies returns stale data and violates the calculation’s contract.
+
+### profiled-calculation (correct)
+
+Cache a profiled expensive calculation whose inputs change far less often than its component renders.
+
+> This can avoid measured repeat work while dependencies remain equal.
+
+### semantic-side-effect
+
+Send an analytics event inside `useMemo` because React guarantees the calculation runs once.
+
+> `useMemo` is not an Effect and its cache is not a semantic once-only guarantee.

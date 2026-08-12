@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which route is the strongest default candidate for static generation?
+
+## Options
+
+### live-auction
+
+A live auction whose highest bid changes every few seconds.
+
+> Highly volatile data needs a runtime update mechanism rather than only build-time output.
+
+### versioned-docs (correct)
+
+A public documentation page updated only when a new release is published.
+
+> The content is shared across visitors and changes on a build-oriented schedule, so a cached generated page fits well.
+
+### account-balance
+
+A signed-in user’s current account balance.
+
+> This varies per request and must stay fresh and private, which conflicts with one shared prebuilt result.
+
+### personal-dashboard
+
+A dashboard assembled from each visitor’s permissions and recent activity.
+
+> Request-specific authorization and personalization make a single static artifact unsuitable as the complete response.

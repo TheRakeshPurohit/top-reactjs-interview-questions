@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A reorderable list of editable rows uses each array index as its key. The first two records swap positions. Which failure is most likely?
+
+## Options
+
+### nothing-ever
+
+Index keys are always equivalent to stable record IDs.
+
+> They are only safe under strict conditions such as a truly static list that is never reordered or filtered.
+
+### all-state-cleared
+
+React detects the swap and clears every row’s state.
+
+> The index keys still match the same positions, so state is reused rather than globally reset.
+
+### compile-error
+
+The JSX transform rejects numeric keys at build time.
+
+> Numeric index keys are syntactically valid; the problem is unstable semantic identity.
+
+### draft-follows-position (correct)
+
+A row’s local draft or focus remains with the position and appears attached to the wrong record.
+
+> Index keys identify positions, so React reuses component state for whichever record moves into that slot.

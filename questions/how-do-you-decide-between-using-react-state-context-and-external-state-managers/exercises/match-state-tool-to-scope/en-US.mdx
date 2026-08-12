@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which state-management choices fit their stated requirements? Select all that apply.
+
+## Options
+
+### subtree-theme-context (correct)
+
+Use context to transport a theme value through a component subtree.
+
+> Context is well suited to making one shared value available without threading it through every intermediate component.
+
+### selector-store (correct)
+
+Use a selector-based external store when many unrelated components subscribe to different slices of rapidly changing client state.
+
+> Fine-grained subscriptions and store tooling address requirements that plain context does not provide by itself.
+
+### context-server-cache
+
+Use context alone to gain request deduplication, stale-data tracking, retries, and cache invalidation for server data.
+
+> Context transports a value; it does not implement a server-state cache or synchronization policy.
+
+### local-draft-state (correct)
+
+Keep a single form’s unsaved draft in local component state.
+
+> The state is owned and consumed by a focused subtree, so local state is the simplest fit.

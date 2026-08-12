@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which capabilities are enabled by React’s Fiber architecture? Select all that apply.
+
+## Options
+
+### units-of-work (correct)
+
+React can represent reconciliation as linked units of work rather than one indivisible recursive pass.
+
+> Fiber nodes let the reconciler track and resume work at component-level boundaries.
+
+### eliminate-expensive-components
+
+Fiber makes an arbitrarily expensive component render fast without changing the component.
+
+> Scheduling can improve responsiveness, but it does not remove the computation cost of component code.
+
+### prioritize-updates (correct)
+
+React can assign priorities and interrupt or abandon eligible render work.
+
+> Scheduling and work priority are central reasons Fiber replaced the earlier stack reconciler.
+
+### separate-commit (correct)
+
+React can keep interruptible rendering separate from the synchronous commit of completed changes.
+
+> The split protects the host tree from partially committed renders.
+
+### all-async
+
+Every React update becomes asynchronous and interruptible.
+
+> Fiber enables scheduling, but some work and the commit phase remain synchronous.

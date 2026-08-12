@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A dashboard contains navigation, an account summary, a message composer, and an analytics chart fed by an unreliable integration. Explain where you would place error boundaries and why.
+
+## Answer
+
+Place a boundary around the independently failing analytics panel so its integration error can show a focused retry or unavailable state without removing navigation or the composer. Add a broader route-level boundary as a final recovery layer for unexpected failures in the page. Keep reporting in `componentDidCatch` or the boundary library’s equivalent, while handling event and request errors at their sources. The boundary granularity should match a UI region that can fail and recover meaningfully on its own.
+
+## Checklist
+
+- Isolates the unreliable panel at an independently recoverable boundary.
+- Keeps a broader route-level fallback for unexpected page failures.
+- Separates render recovery from event and request error handling.
+- Ties boundary granularity to meaningful user recovery.

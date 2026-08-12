@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about React data-loading strategies are sound? Select all that apply.
+
+## Options
+
+### client-cache-policy (correct)
+
+A client cache can provide configurable caching, invalidation, and refetch behavior for browser-owned server state.
+
+> Those synchronization policies belong to the cache or framework, not React context alone.
+
+### effect-simple-case (correct)
+
+Effect-based fetching can be valid for a simple client-only integration when loading, error, cleanup, and races are handled.
+
+> Effects are not forbidden; they require explicit lifecycle and state management.
+
+### use-any-fetch
+
+Passing any newly created `fetch()` promise to `use` automatically gives it stable caching and retry semantics.
+
+> `use` reads a resource; a framework or cache must provide a stable promise and define the surrounding policy.
+
+### framework-loader (correct)
+
+A route framework can coordinate data loading before rendering and avoid client request waterfalls.
+
+> Loaders can start work at the route boundary rather than waiting for nested Effects to mount in sequence.

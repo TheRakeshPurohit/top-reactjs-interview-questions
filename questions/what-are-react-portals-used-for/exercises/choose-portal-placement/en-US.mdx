@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A menu is logically owned by a toolbar button but is clipped by the toolbar's `overflow: hidden`. Which design preserves the React relationship while escaping that DOM clipping boundary?
+
+## Options
+
+### raise-z-index
+
+Give the menu `z-index: 999999` while leaving it inside the clipped toolbar.
+
+> A larger z-index cannot escape an ancestor's overflow clipping boundary.
+
+### move-to-module
+
+Create the menu as an unrelated module-level DOM element with its own state.
+
+> This escapes the clipping boundary but discards the component ownership, context, and event relationship.
+
+### portal-overlay-root (correct)
+
+Render the menu with `createPortal` into an overlay root outside the toolbar.
+
+> A portal changes the child's DOM placement while keeping it in the same React tree.
+
+### absolute-inside
+
+Absolutely position the menu inside the same clipped toolbar.
+
+> Absolute positioning changes coordinates but remains subject to the ancestor's overflow clipping.

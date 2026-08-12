@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+A button starts with `count` equal to `0`. What value is shown after this handler finishes and React processes the queue?
+
+```jsx
+function handleClick() {
+  setCount(count + 1);
+  setCount((value) => value + 1);
+  setCount((value) => value + 1);
+}
+```
+
+## Options
+
+### two
+
+`2`
+
+> Both updater functions run; neither is collapsed into the replacement update.
+
+### one
+
+`1`
+
+> The later updater functions use the queued value, not the original closure value.
+
+### zero
+
+`0`
+
+> The state variable stays `0` inside the current handler, but the queued updates affect the next render.
+
+### three (correct)
+
+`3`
+
+> The replacement queues `1`, then the two updater functions are applied in order to produce `2` and `3`.

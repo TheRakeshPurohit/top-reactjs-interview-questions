@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which mapping is correct?
+
+## Options
+
+### dom-component
+
+A React component is always the final DOM element inserted by the browser.
+
+> Components can return many kinds of nodes and do not necessarily correspond one-to-one with DOM elements.
+
+### element-is-component
+
+`<Greeting />` is the component function itself, while `Greeting` is a rendered node.
+
+> The identifier refers to the component type; JSX creates an element that names that type.
+
+### component-element-node (correct)
+
+`Greeting` is a component; `<Greeting />` creates a React element; the element is one kind of React node.
+
+> A component is used as an element type, JSX creates an element description, and nodes are the broader renderable set.
+
+### string-element
+
+A string is a React element but not a React node.
+
+> Strings are renderable React nodes, but they are not React element objects.

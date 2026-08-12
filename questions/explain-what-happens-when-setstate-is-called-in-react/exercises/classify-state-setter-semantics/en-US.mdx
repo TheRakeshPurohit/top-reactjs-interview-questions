@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about a `useState` setter are correct? Select all that apply.
+
+## Options
+
+### updaters-ordered (correct)
+
+Multiple updater functions are processed in their queued order.
+
+> Each updater receives the result produced by the preceding queued update.
+
+### synchronous-variable
+
+Reading the state variable immediately after calling the setter returns the newly queued value.
+
+> The running handler still closes over the state snapshot from its current render.
+
+### queues-next-render (correct)
+
+It queues work for a later render rather than rewriting the current render’s state variable.
+
+> Each render observes a state snapshot; a setter schedules the next snapshot.
+
+### same-value-bailout (correct)
+
+React can bail out when the final state is `Object.is`-equal to the current state.
+
+> Same-value updates need not propagate a new rendered result to children.

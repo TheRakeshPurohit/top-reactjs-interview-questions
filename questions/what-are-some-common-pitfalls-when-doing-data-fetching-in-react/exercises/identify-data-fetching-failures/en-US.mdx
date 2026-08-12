@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+A component fetches data in an Effect. Which issues require explicit handling? Select all that apply.
+
+## Options
+
+### http-status (correct)
+
+`fetch()` can resolve for an HTTP error response, so code may need to check `response.ok`.
+
+> Network success and application-level HTTP success are separate conditions.
+
+### missing-ui-states (correct)
+
+The UI needs deliberate loading, empty, success, and error behavior.
+
+> A request is not a complete user experience without representing its relevant states.
+
+### request-waterfall (correct)
+
+Nested components that start requests only after mounting can create sequential request waterfalls.
+
+> Route loaders or coordinated caches can start independent work earlier.
+
+### response-race (correct)
+
+An older request can finish after a newer request and overwrite current results.
+
+> Cleanup, cancellation, or request identity is needed to prevent stale responses from winning.
+
+### strict-production-double
+
+Strict Mode intentionally sends every Effect request twice in production.
+
+> The extra setup and cleanup cycle is a development check, not production behavior.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which component state is the strongest candidate for `useReducer`?
+
+## Options
+
+### workflow-transitions (correct)
+
+A checkout workflow with related fields and explicit actions such as `ADD_ITEM`, `APPLY_CODE`, and `RESET`.
+
+> A reducer centralizes related transitions and makes action-driven state changes explicit and testable.
+
+### server-cache
+
+All remote API responses, retries, invalidation, and background synchronization.
+
+> A reducer can model local transitions but does not by itself provide a server-state cache policy.
+
+### dom-node
+
+A mutable reference to an input DOM node used for focus.
+
+> A DOM handle belongs in a ref, not reducer state that triggers renders.
+
+### single-toggle
+
+One independent boolean controlling whether a tooltip is open.
+
+> A single simple value is usually clearer with `useState`.

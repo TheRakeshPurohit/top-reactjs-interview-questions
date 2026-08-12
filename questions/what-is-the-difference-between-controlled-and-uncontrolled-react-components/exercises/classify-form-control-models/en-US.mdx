@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about controlled and uncontrolled form inputs are correct? Select all that apply.
+
+## Options
+
+### uncontrolled-default (correct)
+
+An uncontrolled input can use `defaultValue` for its initial value and be read through a ref or form submission.
+
+> After initialization, the DOM owns the current input value.
+
+### file-uncontrolled (correct)
+
+A file input is treated as uncontrolled because application code cannot set its selected files as a value.
+
+> The browser owns the file selection for security and platform reasons.
+
+### switch-freely
+
+An input should switch between controlled and uncontrolled whenever its value becomes empty.
+
+> Changing control modes during a component lifetime creates inconsistent ownership and React warnings.
+
+### controlled-source (correct)
+
+A controlled text input receives `value` from React state and reports edits through `onChange`.
+
+> React state is the current source of truth for the displayed value.

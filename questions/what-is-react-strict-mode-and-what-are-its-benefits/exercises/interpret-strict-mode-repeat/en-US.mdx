@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A development Effect connects to a service, disconnects, and connects again immediately after mount under `<StrictMode>`. What should the team do?
+
+## Options
+
+### verify-cleanup (correct)
+
+Treat it as a development stress test and make setup and cleanup safely mirror each other.
+
+> Strict Mode deliberately performs an extra setup/cleanup cycle to expose missing cleanup and unsafe assumptions.
+
+### global-flag
+
+Use a global flag to suppress every later setup call.
+
+> A suppression flag hides lifecycle bugs and can break genuine remounts or changed dependencies.
+
+### layout-effect
+
+Change it to `useLayoutEffect`, which Strict Mode never rechecks.
+
+> Strict Mode also stress-tests layout Effects; moving the work does not solve missing cleanup.
+
+### disable-production
+
+Remove the Effect because React will always double-connect in production.
+
+> The extra cycle is development-only; production does not intentionally repeat it.

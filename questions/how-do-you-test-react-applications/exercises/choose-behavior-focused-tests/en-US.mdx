@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which testing practices focus on observable React behavior? Select all that apply.
+
+## Options
+
+### async-find (correct)
+
+Use an asynchronous query for content that appears after a request resolves.
+
+> Async queries wait for an observable UI state rather than assuming synchronous rendering.
+
+### network-boundary (correct)
+
+Mock the network boundary and assert loading, success, and failure states.
+
+> This tests the component’s contract with the external system without coupling to its internal functions.
+
+### hook-state-assertion
+
+Assert the private `useState` variable after every handler call.
+
+> Private Hook state is an implementation detail; the rendered behavior is the stable contract.
+
+### accessible-query (correct)
+
+Find a submit button by its accessible role and name, then click it as a user would.
+
+> This exercises the UI through semantics that users and assistive technology observe.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which definition is a higher-order component?
+
+## Options
+
+### event-handler
+
+A callback prop invoked when a child button is clicked.
+
+> An event callback does not transform a component definition.
+
+### component-transformer (correct)
+
+A function that accepts a component and returns a component that adds props or rendering behavior.
+
+> An HOC transforms one component type into another enhanced component type.
+
+### custom-hook
+
+A function beginning with `use` that returns reusable stateful values.
+
+> That is a custom Hook; it shares logic without wrapping and returning a component.
+
+### element-wrapper
+
+A function that accepts a React element and returns a plain DOM node.
+
+> An HOC operates on component types and returns a component, not a mounted DOM node.

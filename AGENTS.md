@@ -101,6 +101,8 @@ Each question lives in its own slug directory:
 questions/<slug>/
   metadata.json
   en-US.mdx
+  exercises/index.json (when exercises are present)
+  exercises/<exercise-id>/en-US.mdx
   zh-CN.mdx (generated translation, when available)
   en-US.langnostic.json (generated translation state, when available)
 ```
@@ -209,6 +211,17 @@ Example:
 - Cross-link related questions when that reduces duplication, but summarize the local point instead of outsourcing the explanation entirely.
 - Verify internal links, code behavior, API status, and version-sensitive claims before finishing.
 - Preserve good existing structure whenever possible.
+
+### Quiz exercises
+
+- Keep exercises outside the answer MDX. Store each definition in `exercises/<exercise-id>/en-US.mdx` and list all IDs once, in learner order, in `exercises/index.json`. Do not add inline `<Exercise>` markers or an exercises heading to answer articles; GreatFrontEnd renders the manifest after the answer.
+- Map the important, transferable concepts before choosing a count. Start with one exercise per concept and add a second only when it uses a materially different scenario and reasoning task, provides evidence the first cannot, and keeps the complete sequence within 1–3 exercises.
+- Use `single-select` for one output, behavior, or best answer; `multi-select` for independently evaluable claims; and `self-review` for explanations, tradeoffs, debugging plans, or design reasoning.
+- Give every exercise a stable kebab-case ID and one primary learning objective. Prefer a new trace, consequence, or implementation decision over recalling nearby article wording.
+- Every exercise requires an English definition. Localized definitions are optional and fall back to English; do not edit generated translations unless localization is explicitly in scope.
+- For choice exercises, provide 3–5 plausible options and a concise rationale for every option. A single-select must have exactly one defensible answer; a multi-select must say “Select all that apply” and make every claim independently true or false.
+- For self-review exercises, provide a model answer and 2–4 concrete key points. Keep the task answerable in roughly two minutes.
+- Preview each sequence in the GreatFrontEnd learner UI and test correct, incorrect, retry, reveal, navigation, locale fallback, and narrow-layout behavior across a representative batch.
 
 ### Literal braces in MDX
 

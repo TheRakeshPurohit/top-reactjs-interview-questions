@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A button is portaled into `document.body`, but its component is nested inside a React parent with an `onClick` handler. The button click is not stopped. What happens?
+
+## Options
+
+### react-parent-handles (correct)
+
+The parent’s React `onClick` handler runs even though the portal DOM node is elsewhere.
+
+> Portal events propagate according to the React tree, where the portaled child still belongs to that parent.
+
+### dom-parent-only
+
+Only DOM ancestors under `document.body` can observe the click.
+
+> Native DOM ancestry differs from React’s synthetic event propagation through the component tree.
+
+### portal-stops-events
+
+Creating a portal automatically stops event propagation at the portal boundary.
+
+> A portal changes placement, not the event or context relationship in the React tree.
+
+### context-lost
+
+The click fails because portaled children lose their React context and parent relationship.
+
+> Context and React parentage are preserved across a portal.
